@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,7 +20,7 @@ public class userInputActivity extends AppCompatActivity {
     int age;
 
     ArrayList<String> names = new ArrayList<>();
-    ArrayList<Integer> ages = new ArrayList<>();
+    ArrayList<Integer> ages = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class userInputActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_input);
 
         editText1 = findViewById(R.id.editText1);
-        editText2 = findViewById(R.id.editText1);
+        editText2 = findViewById(R.id.editText2);
 
         saveButton = findViewById(R.id.buttonId1);
         showButton = findViewById(R.id.buttonId2);
@@ -42,6 +43,8 @@ public class userInputActivity extends AppCompatActivity {
                 names.add(name);
                 ages.add(age);
 
+                Log.wtf("size", "" + names.size());
+
                 editText1.setText("");
                 editText2.setText("");
 
@@ -53,7 +56,7 @@ public class userInputActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(userInputActivity.this, MainActivity.class);
+                Intent intent = new Intent(userInputActivity.this, recyclerView_Activity.class);
                 intent.putExtra("key1", names);
                 intent.putExtra("key2", ages);
                 startActivity(intent);

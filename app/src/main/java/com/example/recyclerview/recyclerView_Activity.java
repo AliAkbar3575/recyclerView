@@ -6,19 +6,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import java.sql.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class MainActivity extends AppCompatActivity {
+public class recyclerView_Activity extends AppCompatActivity {
 
     ArrayList<String> names = new ArrayList<>();
-    ArrayList<Integer> ages = new ArrayList<>();
+    ArrayList<Integer> ages = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.recyclerView_Activity);
 
         Bundle bundle = new Bundle();
         bundle = getIntent().getExtras();

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     ArrayList<String> names = new ArrayList<>();
-    ArrayList<Integer> ages = new ArrayList<>();
+    ArrayList<Integer> ages = new ArrayList<Integer>();
     Context context;
 
     public MyAdapter(Context context, ArrayList<String> names, ArrayList<Integer> ages) {
@@ -32,10 +33,18 @@ public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
         holder.nameText.setText(names.get(position));
-        holder.ageText.setText(ages.get(position));
+        holder.ageText.setText(String.valueOf(ages.get(position)));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(context, names.get(position), Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
